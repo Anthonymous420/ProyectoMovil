@@ -122,46 +122,56 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#d0fdd7',
+        backgroundColor: '#121212', // Fondo oscuro
+        padding: 20,
     },
     textBtn: {
-        color: '#ffffff',
+        color: '#FFFFFF', // Texto blanco
         fontSize: 16,
-        textAlign: 'center'
+        fontWeight: 'bold',
+        textAlign: 'center',
+        textTransform: 'uppercase',
     },
     input: {
         height: 50,
-        color: '#2a8c4a',
-        width: 300,
-        backgroundColor: '#ffffff',
-        borderRadius: 25,
-        borderWidth: 1.5,
-        borderColor: '#2a8c4a',
-        fontSize: 18,
-        paddingHorizontal: 20,
-        marginBottom: 20,
+        color: '#E0E0E0', // Texto claro
+        width: '90%',
+        backgroundColor: '#1F1F1F', // Fondo oscuro para inputs
+        borderRadius: 10,
+        borderWidth: 1,
+        borderColor: '#333', // Borde gris oscuro
+        fontSize: 16,
+        paddingHorizontal: 15,
+        marginBottom: 15,
     },
     welcometext: {
-        color: '#2a8c4a',
-        margin: 15,
+        color: '#FFFFFF', // Texto blanco
+        fontSize: 24,
+        fontWeight: 'bold',
+        marginBottom: 20,
         textAlign: 'center',
-        fontSize: 20,
     },
     button: {
-        backgroundColor: '#64c27b',
+        backgroundColor: '#2196F3', // Azul vibrante
         paddingVertical: 15,
-        paddingHorizontal: 30,
-        borderRadius: 25,
+        paddingHorizontal: 25,
+        borderRadius: 10,
         marginVertical: 10,
-        width: 300,
+        width: '90%',
         alignItems: 'center',
+        elevation: 5, // Sombra para Android
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 4 },
+        shadowOpacity: 0.5,
+        shadowRadius: 4,
     },
     error: {
-        borderWidth: 1.5,
-        borderColor: '#9bfab0',
+        borderColor: '#F44336', // Rojo para errores
     },
     errorText: {
-        color: '#9bfab0',
+        color: '#F44336', // Texto rojo
+        fontSize: 14,
         marginBottom: 10,
-    }
+        textAlign: 'center',
+    },
 });
