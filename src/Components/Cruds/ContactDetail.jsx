@@ -90,21 +90,19 @@ const ContactDetail = ({ route, navigation }) => {
 export default ContactDetail;
 
 const styles = StyleSheet.create({
-  container: {
+    container: {
     flex: 1,
-    backgroundColor: '#d0fdd7',
+    backgroundColor: '#1A202C', // Fondo oscuro
     padding: 20,
-    justifyContent: 'center',
-    alignItems: 'center',
   },
   icon: {
     marginBottom: 20,
   },
   title: {
-    fontSize: 24,
+    fontSize: 28,
     fontWeight: 'bold',
+    color: '#E2E8F0', // Color claro
     marginBottom: 20,
-    color: '#2a8c4a',
   },
   infoContainer: {
     alignItems: 'flex-start',
@@ -126,22 +124,19 @@ const styles = StyleSheet.create({
     marginLeft: 10,
   },
   button: {
-    flexDirection: 'row',
-    backgroundColor: '#64c27b',
+    backgroundColor: '#4A5568', // Gris oscuro
     padding: 15,
     borderRadius: 10,
-    marginVertical: 10,
-    width: 200,
     alignItems: 'center',
-    justifyContent: 'center',
+    marginBottom: 15,
   },
   deleteButton: {
     backgroundColor: '#ff6961', // Rojo pastel
   },
   buttonText: {
-    color: '#ffffff',
+    color: '#E2E8F0',
     fontSize: 16,
-    marginLeft: 10,
+    fontWeight: 'bold',
   },
   buttonIcon: {
     marginRight: 5,
