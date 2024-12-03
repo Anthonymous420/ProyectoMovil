@@ -49,43 +49,51 @@ const styles = StyleSheet.create({
     flexGrow: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#d0fdd7',
-    padding: 35,
+    backgroundColor: '#1A202C', // Fondo oscuro
+    padding: 20,
   },
   icon: {
     marginBottom: 20,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.8,
+    shadowRadius: 4,
   },
   titulo: {
-    textAlign: "center",
-    fontSize: 24,
-    color: '#2a8c4a',
-    marginBottom: 20,
+    textAlign: 'center',
+    fontSize: 28,
+    fontWeight: 'bold',
+    color: '#F7FAFC', // Texto claro
+    marginBottom: 30,
   },
   buttonGroup: {
     width: '100%',
     alignItems: 'center',
   },
   button: {
-    backgroundColor: '#64c27b',
+    backgroundColor: '#2B6CB0', // Azul vibrante
     paddingVertical: 15,
-    paddingHorizontal: 30,
-    borderRadius: 25,
+    paddingHorizontal: 20,
+    borderRadius: 15,
     marginVertical: 10,
-    width: 300,
+    width: '90%',
     alignItems: 'center',
+    elevation: 5, // Sombra para Android
   },
   logoutButton: {
-    backgroundColor: '#ff6961',
+    backgroundColor: '#E53E3E', // Rojo vibrante
     paddingVertical: 15,
-    paddingHorizontal: 30,
-    borderRadius: 25,
+    paddingHorizontal: 20,
+    borderRadius: 15,
     marginVertical: 10,
-    width: 300,
+    width: '90%',
     alignItems: 'center',
+    elevation: 5, // Sombra para Android
   },
   textBtn: {
-    color: '#ffffff',
+    color: '#FFFFFF', // Texto blanco
     fontSize: 16,
+    fontWeight: '600',
     textAlign: 'center',
   },
 });
