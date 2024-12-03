@@ -40,8 +40,60 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#ABCFF1',
-    alignItems: 'center',
+    backgroundColor: '#F4F4F9', // Color de fondo neutro, elegante
     justifyContent: 'center',
+    alignItems: 'center',
+  },
+  screenContainer: {
+    flex: 1,
+    backgroundColor: '#FFFFFF', // Fondo blanco para cada pantalla
+    padding: 20,
+  },
+  titleText: {
+    fontSize: 32,
+    fontWeight: '600', // Negrita pero formal
+    color: '#2C3E50', // Color gris oscuro
+    marginBottom: 20,
+  },
+  subtitleText: {
+    fontSize: 16,
+    color: '#7F8C8D', // Gris para subtítulos
+    marginBottom: 15,
+  },
+  button: {
+    backgroundColor: '#3498DB', // Azul más formal
+    paddingVertical: 14,
+    paddingHorizontal: 30,
+    borderRadius: 8,
+    marginVertical: 12,
+    width: '100%',
+    alignItems: 'center',
+    elevation: 3, // Sombra sutil
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.2,
+    shadowRadius: 5,
+  },
+  buttonText: {
+    color: '#FFFFFF',
+    fontSize: 18,
+    fontWeight: '600',
+  },
+  input: {
+    height: 45,
+    backgroundColor: '#ECF0F1', // Fondo claro para inputs
+    borderColor: '#BDC3C7', // Color de borde gris claro
+    borderRadius: 8,
+    borderWidth: 1,
+    fontSize: 16,
+    color: '#34495E', // Color de texto gris oscuro
+    paddingHorizontal: 15,
+    marginBottom: 15,
+    width: '100%',
+  },
+  errorText: {
+    color: '#E74C3C', // Rojo claro para errores
+    fontSize: 14,
+    marginBottom: 10,
   },
 });
