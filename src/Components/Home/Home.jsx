@@ -49,49 +49,58 @@ const styles = StyleSheet.create({
     flexGrow: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#1A202C', // Fondo oscuro
-    padding: 20,
+    backgroundColor: '#F5F5F5', // Fondo gris claro
+    padding: 25,
   },
   icon: {
     marginBottom: 20,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.8,
-    shadowRadius: 4,
+    color: '#FF6F61', // Ícono en color coral
+    shadowColor: '#333', // Sombra sutil
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.6,
+    shadowRadius: 5,
   },
   titulo: {
     textAlign: 'center',
-    fontSize: 28,
-    fontWeight: 'bold',
-    color: '#F7FAFC', // Texto claro
-    marginBottom: 30,
+    fontSize: 26,
+    fontWeight: '700',
+    color: '#333', // Texto oscuro
+    marginBottom: 20,
   },
   buttonGroup: {
     width: '100%',
     alignItems: 'center',
   },
   button: {
-    backgroundColor: '#2B6CB0', // Azul vibrante
-    paddingVertical: 15,
+    backgroundColor: '#4CAF50', // Verde vibrante
+    paddingVertical: 14,
     paddingHorizontal: 20,
-    borderRadius: 15,
-    marginVertical: 10,
-    width: '90%',
+    borderRadius: 8,
+    marginVertical: 8,
+    width: '85%',
     alignItems: 'center',
-    elevation: 5, // Sombra para Android
+    elevation: 6, // Sombra para Android
+    shadowColor: '#000', // Sombra para iOS
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
   },
   logoutButton: {
-    backgroundColor: '#E53E3E', // Rojo vibrante
-    paddingVertical: 15,
+    backgroundColor: '#F44336', // Rojo brillante
+    paddingVertical: 14,
     paddingHorizontal: 20,
-    borderRadius: 15,
-    marginVertical: 10,
-    width: '90%',
+    borderRadius: 8,
+    marginVertical: 8,
+    width: '85%',
     alignItems: 'center',
-    elevation: 5, // Sombra para Android
+    elevation: 6, // Sombra para Android
+    shadowColor: '#000', // Sombra para iOS
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
   },
   textBtn: {
-    color: '#FFFFFF', // Texto blanco
+    color: '#FFF', // Texto blanco
     fontSize: 16,
     fontWeight: '600',
     textAlign: 'center',
