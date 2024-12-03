@@ -17,8 +17,7 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+const appFirebase = initializeApp(firebaseConfig);
 
 // Initialize Firebase Auth with persistence
 const auth = initializeAuth(appFirebase, {
@@ -29,3 +28,4 @@ const auth = initializeAuth(appFirebase, {
 const db = getFirestore(appFirebase);
 
 export { appFirebase, auth, db };
+
