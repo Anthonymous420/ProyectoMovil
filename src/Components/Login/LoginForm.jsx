@@ -1,4 +1,4 @@
-import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
+import { StyleSheet, Text, TextInput, TouchableOpacity, View, Alert } from 'react-native'
 import React, { useState, useEffect } from 'react'
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
 import { app } from '../../utils/connection'
@@ -42,19 +42,22 @@ export default function LoginForm({ navigation }) {
       }
     } else {
       const auth = getAuth(app);
-      signInWithEmailAndPassword(auth, formData.email, formData.password)
+      const em = formData.email.toLowerCase();
+      const x = formData.email;
+      signInWithEmailAndPassword(auth, em, formData.password)
       .then((userCredential) => {
           const user = userCredential.user;
           console.log(user)
           console.log('Logeado!')
 
           // Redireccionar a la pantalla de inicio (Home)
-          navigation.navigate('Página Principal');
+          navigation.navigate('Página Principal', x)
       }).catch((error) => {
         setFormError({
           email: true,
           password: true
         })
+        Alert.alert('Error', 'No existe un usuario con esas credenciales');
         console.log('No existe usuario con esas credenciales')
       })
     }
@@ -64,7 +67,7 @@ export default function LoginForm({ navigation }) {
   return (
     <View style={styles.container}>
       <Icon name="phone" size={100} color="#2a8c4a" style={styles.icon} />
-      <Text style={styles.welcometext}>¡Hola!</Text>
+      <Text style={styles.welcometext}>¡Bienvenido!</Text>
       <Text style={styles.welcometext}>Ingresa tus datos</Text>
       <TextInput
         style={[styles.input, formError.email && styles.error]}
@@ -92,49 +95,62 @@ export default function LoginForm({ navigation }) {
 }
 
 const styles = StyleSheet.create({
-  container: {
+    container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#d0fdd7',
+    backgroundColor: '#121212', // Fondo oscuro
+    padding: 20,
   },
   icon: {
     marginBottom: 20,
+    color: '#FF5722', // Ícono naranja brillante
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.4,
+    shadowRadius: 5,
   },
   textBtn: {
-    color: '#ffffff',
+    color: '#FFFFFF', // Texto blanco
     fontSize: 16,
-    textAlign: 'center'
+    fontWeight: 'bold',
+    textTransform: 'uppercase',
+    textAlign: 'center',
   },
   input: {
     height: 50,
-    color: '#2a8c4a',
-    width: 300,
-    backgroundColor: '#ffffff',
-    borderRadius: 25,
-    borderWidth: 1.5,
-    borderColor: '#2a8c4a',
-    fontSize: 18,
-    paddingHorizontal: 20,
-    marginBottom: 20,
+    color: '#E0E0E0', // Texto gris claro
+    width: '90%',
+    backgroundColor: '#1F1F1F', // Fondo oscuro para inputs
+    borderRadius: 8,
+    borderWidth: 1,
+    borderColor: '#333', // Borde gris oscuro
+    fontSize: 16,
+    paddingHorizontal: 15,
+    marginBottom: 15,
   },
   welcometext: {
-    color: '#2a8c4a',
-    margin: 15,
+    color: '#FFFFFF', // Texto blanco
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 30,
     textAlign: 'center',
-    fontSize: 20,
   },
   button: {
-    backgroundColor: '#64c27b',
+    backgroundColor: '#2196F3', // Azul vibrante
     paddingVertical: 15,
-    paddingHorizontal: 30,
-    borderRadius: 25,
+    paddingHorizontal: 25,
+    borderRadius: 10,
     marginVertical: 10,
-    width: 300,
+    width: '90%',
     alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.5,
+    shadowRadius: 4,
+    elevation: 5, // Sombra para Android
   },
   error: {
-    borderWidth: 1.5,
-    borderColor: '#9bfab0',
+    borderColor: '#F44336', // Rojo para errores
   }
 })

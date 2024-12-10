@@ -22,6 +22,7 @@ const Create = (props) => {
     edad: "",
     sexo: "Hombre", // Valor inicial para el Picker
     telefono: "",
+    email: props.route.params.y
   };
   const [state, setState] = useState(initialState);
   const [formError, setFormError] = useState({});
@@ -42,12 +43,13 @@ const Create = (props) => {
       errors.telefono = true;
       Alert.alert('Error', 'El número de teléfono debe tener 10 dígitos');
     } else {
+      console.log(props.route.params.y)
       try {
         await addDoc(collection(db, 'contactos'), {
           ...state
         });
-        Alert.alert('Listo', 'Guardado con éxito');
-        props.navigation.navigate('Página Principal');
+        Alert.alert('Listo', 'Contacto guardado con éxito');
+        props.navigation.navigate('Página Principal',props.route.params.y);
       } catch (error) {
         console.error(error);
       }
@@ -116,17 +118,18 @@ const Create = (props) => {
 export default Create;
 
 const styles = StyleSheet.create({
-  container: {
+   container: {
     flexGrow: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#d0fdd7',
-    padding: 35,
+    backgroundColor: '#F7FAFC', // Fondo claro
+    padding: 20,
   },
   titulo: {
-    textAlign: "center",
-    fontSize: 24,
-    color: '#2a8c4a',
+    fontSize: 26,
+    textAlign: 'center',
+    fontWeight: 'bold',
+    color: '#2D3748',
     marginBottom: 20,
   },
   inputGroup: {
@@ -134,29 +137,23 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   input: {
-    height: 50,
-    color: '#2a8c4a',
-    width: '100%',
-    backgroundColor: '#ffffff',
-    borderRadius: 25,
-    borderWidth: 1.5,
-    borderColor: '#2a8c4a',
-    fontSize: 18,
-    paddingHorizontal: 20,
+    borderWidth: 1,
+    borderColor: '#CBD5E0',
+    padding: 10,
+    borderRadius: 8,
+    backgroundColor: '#EDF2F7',
+    marginBottom: 15,
   },
   button: {
-    backgroundColor: '#64c27b',
-    paddingVertical: 15,
-    paddingHorizontal: 30,
-    borderRadius: 25,
-    marginVertical: 10,
-    width: 300,
+    backgroundColor: '#38B2AC', // Verde agua
+    padding: 15,
+    borderRadius: 10,
     alignItems: 'center',
   },
   textBtn: {
-    color: '#ffffff',
+    color: '#FFFFFF',
     fontSize: 16,
-    textAlign: 'center',
+    fontWeight: 'bold',
   },
   error: {
     borderWidth: 1.5,

@@ -3,23 +3,27 @@ import React, { useLayoutEffect } from "react";
 import { getAuth, signOut } from "firebase/auth";
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-export default function Home({ navigation }) {
+export default function Home({ navigation, route}) {
   useLayoutEffect(() => {
     navigation.setOptions({
       headerLeft: () => null,
     });
   }, [navigation]);
 
+  const y = route.params
+
   const changeForm = () => {
-    navigation.navigate("Crear");
+    navigation.navigate("Crear", {y});
+    console.log(route.params)
   };
   const viewContacts = () => {
-    navigation.navigate("Ver");
+    console.log(route.params)
+    navigation.navigate("Ver", {y});
   };
   const logout = () => {
     const auth = getAuth();
     signOut(auth).then(() => {
-      navigation.navigate("Bienvenido a Contactos", { reset: true });
+      navigation.navigate("Login", { reset: true });
     }).catch((error) => {
       console.error("Error al cerrar sesión: ", error);
     });
@@ -49,16 +53,22 @@ const styles = StyleSheet.create({
     flexGrow: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#d0fdd7',
-    padding: 35,
+    backgroundColor: '#F5F5F5', // Fondo gris claro
+    padding: 25,
   },
   icon: {
     marginBottom: 20,
+    color: '#FF6F61', // Ícono en color coral
+    shadowColor: '#333', // Sombra sutil
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.6,
+    shadowRadius: 5,
   },
   titulo: {
-    textAlign: "center",
-    fontSize: 24,
-    color: '#2a8c4a',
+    textAlign: 'center',
+    fontSize: 26,
+    fontWeight: '700',
+    color: '#333', // Texto oscuro
     marginBottom: 20,
   },
   buttonGroup: {
@@ -66,26 +76,37 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   button: {
-    backgroundColor: '#64c27b',
-    paddingVertical: 15,
-    paddingHorizontal: 30,
-    borderRadius: 25,
-    marginVertical: 10,
-    width: 300,
+    backgroundColor: '#4CAF50', // Verde vibrante
+    paddingVertical: 14,
+    paddingHorizontal: 20,
+    borderRadius: 8,
+    marginVertical: 8,
+    width: '85%',
     alignItems: 'center',
+    elevation: 6, // Sombra para Android
+    shadowColor: '#000', // Sombra para iOS
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
   },
   logoutButton: {
-    backgroundColor: '#ff6961',
-    paddingVertical: 15,
-    paddingHorizontal: 30,
-    borderRadius: 25,
-    marginVertical: 10,
-    width: 300,
+    backgroundColor: '#F44336', // Rojo brillante
+    paddingVertical: 14,
+    paddingHorizontal: 20,
+    borderRadius: 8,
+    marginVertical: 8,
+    width: '85%',
     alignItems: 'center',
+    elevation: 6, // Sombra para Android
+    shadowColor: '#000', // Sombra para iOS
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
   },
   textBtn: {
-    color: '#ffffff',
+    color: '#FFF', // Texto blanco
     fontSize: 16,
+    fontWeight: '600',
     textAlign: 'center',
   },
 });

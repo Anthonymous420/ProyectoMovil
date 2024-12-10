@@ -62,29 +62,32 @@ export default function Delete() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#d0fdd7',
-    padding: 10,
+    backgroundColor: '#E6FFFA', // Fondo verde claro
+    padding: 20,
   },
   item: {
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
+    backgroundColor: '#81E6D9', // Verde agua más fuerte
     padding: 15,
-    marginVertical: 8,
-    backgroundColor: '#ffffff',
+    borderRadius: 10,
+    marginBottom: 10,
     borderRadius: 10,
   },
   text: {
     fontSize: 18,
-    color: '#2a8c4a',
+    color: '#2C7A7B',
   },
   button: {
-    backgroundColor: '#64c27b',
+    backgroundColor: '#F56565', // Rojo fuerte
     padding: 10,
-    borderRadius: 5,
+    borderRadius: 10,
+    marginTop: 10,
+    alignItems: 'center',
   },
   buttonText: {
-    color: '#ffffff',
-    fontWeight: "bold",
+    color: '#FFF5F5',
+    fontWeight: 'bold',
   },
 });

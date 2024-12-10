@@ -6,6 +6,7 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 
 export default function Vista({ navigation, route }) {
   const db = getFirestore(connection);
+  const corr=route.params.y;
   const [lista, setLista] = useState([]);
   const [search, setSearch] = useState("");
   const [filteredLista, setFilteredLista] = useState([]);
@@ -13,6 +14,7 @@ export default function Vista({ navigation, route }) {
   useEffect(() => {
     if (route.params?.refresh) {
       getLista();
+      route.params.refresh = false
     }
   }, [route.params?.refresh]);
 
@@ -32,8 +34,9 @@ export default function Vista({ navigation, route }) {
         ...doc.data(),
       })).sort((a, b) => a.nombre.localeCompare(b.nombre));
 
-      setLista(contactos);
-      setFilteredLista(contactos);
+      const contactosFiltrados = contactos.filter((contacto) => contacto.email === route.params?.y);
+      setLista(contactosFiltrados);
+      setFilteredLista(contactosFiltrados);
     } catch (error) {
       console.log(error);
     }
@@ -70,7 +73,7 @@ export default function Vista({ navigation, route }) {
         data={filteredLista}
         renderItem={({ item }) => (
           <TouchableOpacity
-            onPress={() => navigation.navigate("Detalles del Contacto", { ...item })}
+            onPress={() => navigation.navigate("Detalles del Contacto", { ...item ,corr})}
           >
             <View style={styles.itemContainer}>
               <View style={styles.itemTextContainer}>
@@ -94,29 +97,25 @@ export default function Vista({ navigation, route }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 10,
-    backgroundColor: '#d0fdd7',
+    backgroundColor: '#F0FFF4', // Verde muy claro
+    padding: 20,
   },
   searchBar: {
-    height: 50,
-    backgroundColor: '#ffffff',
-    borderRadius: 25,
-    borderWidth: 1.5,
-    borderColor: '#2a8c4a',
-    paddingHorizontal: 20,
-    fontSize: 18,
+    borderWidth: 1,
+    borderColor: '#68D391', // Verde claro
+    borderRadius: 10,
+    padding: 10,
     marginBottom: 20,
+    backgroundColor: '#FFFFFF',
   },
   lista: {
     flex: 1,
   },
   itemContainer: {
-    backgroundColor: '#ffffff',
-    padding: 20,
-    marginVertical: 8,
+    backgroundColor: '#68D391',
+    padding: 15,
     borderRadius: 10,
-    borderWidth: 1,
-    borderColor: '#2a8c4a',
+    marginBottom: 10,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
