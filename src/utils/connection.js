@@ -28,3 +28,4 @@ const auth = initializeAuth(appFirebase, {
 const db = getFirestore(appFirebase);
 
 export { appFirebase, auth, db };
+
